@@ -59,19 +59,19 @@ class Content extends React.Component {
 
     if (repository instanceof Error) {
       return (
-        <div className="alert alert-empty">This repository is Not Found</div>
+        <div className="alert alert-empty">仓库不存在！</div>
       );
     }
 
     if (!repository || !builds) {
       return (
-        <div>Loading...</div>
+        <div>加载中...</div>
       );
     }
 
     if (!builds || Object.keys(builds).length == 0) {
       return (
-        <div className="alert alert-empty">This repository does not have any builds yet.</div>
+        <div className="alert alert-empty">这个仓库还没有构建历史。</div>
       );
     }
 

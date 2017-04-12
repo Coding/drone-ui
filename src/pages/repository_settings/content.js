@@ -52,23 +52,23 @@ class Content extends React.Component {
     const switches = [
       {
         key: 'allow_push',
-        text: 'Push Hooks'
+        text: '推送钩子'
       },
       {
         key: 'allow_pr',
-        text: 'Pull Request Hooks'
+        text: 'Pull Request 钩子'
       },
       {
         key: 'allow_tags',
-        text: 'Tag Hooks'
+        text: '标签钩子'
       },
       {
         key: 'allow_deploys',
-        text: 'Deploy Hook'
+        text: '部署钩子'
       },
       {
         key: 'trusted',
-        text: 'Trusted'
+        text: '信任'
       }
     ];
 
@@ -88,9 +88,9 @@ class Content extends React.Component {
           );
         })}
         <Grid>
-          <Cell phone={12} col={3}>Timeout</Cell>
+          <Cell phone={12} col={3}>超时时间</Cell>
           <Cell phone={12} col={9}>
-            <div style={{float: 'right'}}>{this.state.timeout} minutes</div>
+            <div style={{float: 'right'}}>{this.state.timeout} 分钟</div>
             <Slider min={0} max={900} value={this.state.timeout} onChange={this.handleTimeout}/>
           </Cell>
         </Grid>

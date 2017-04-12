@@ -18,7 +18,7 @@ class Content extends React.Component {
     return (
       <PageContent className="repository-badge">
         <Grid>
-          <Cell phone={12} col={2}>Markdown</Cell>
+          <Cell phone={12} col={2}>Markdown 语法</Cell>
           <Cell phone={12} col={10}>
             <pre>{markdown}</pre>
           </Cell>
@@ -27,7 +27,7 @@ class Content extends React.Component {
         <hr/>
 
         <Grid>
-          <Cell phone={12} col={2}>Markup</Cell>
+          <Cell phone={12} col={2}>Markup 语法</Cell>
           <Cell phone={12} col={10}>
             <pre>{markup}</pre>
           </Cell>
@@ -36,7 +36,7 @@ class Content extends React.Component {
         <hr/>
 
         <Grid>
-          <Cell phone={12} col={2}>CC Menu</Cell>
+          <Cell phone={12} col={2}>CC Menu 语法</Cell>
           <Cell phone={12} col={10}>
             <pre>{ccMenu}</pre>
           </Cell>

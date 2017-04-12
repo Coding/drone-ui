@@ -7,7 +7,7 @@ class Humanize extends React.Component {
     const {start, finished} = this.props;
 
     return (
-      <span>{humanizeDuration((finished-start)*1000)}</span>
+      <span>{humanizeDuration((finished - start) * 1000, { language: 'zh_CN' })}</span>
     );
   }
 }

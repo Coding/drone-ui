@@ -1,18 +1,16 @@
-import {branch} from 'baobab-react/higher-order';
-import {Link} from 'react-router';
 import React from 'react';
-import Breadcrumb, {SEPARATOR} from '../../components/layout/breadcrumb';
+import { Link } from 'react-router';
+import { branch } from 'baobab-react/higher-order';
+import CommonHeader from '../../components/header';
 
 class Header extends React.Component {
+  componentDidMount() {
+    const { owner, name, number } = this.props.params;
+    document.title = `${owner}/${name} #${number} | drone`;
+  }
   render() {
-    const {owner, name, number} = this.props.params;
-
     return (
-      <Breadcrumb elements={[
-        <Link to={`/${owner}/${name}`}>{owner} / {name}</Link>,
-        SEPARATOR,
-        <Link to={`/${owner}/${name}/${number}`}>{number}</Link>
-      ]}/>
+      <CommonHeader />
     );
   }
 }

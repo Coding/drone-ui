@@ -21,9 +21,7 @@ class Sidebar extends React.Component {
     if (!user) {
       return (
         <div className="repository-sidebar">
-          <div className="alert">
-            <a href="/login">Login</a> to view your repository list.
-          </div>
+          <div className="alert">请 <a href="/login">登录</a> 以查看仓库列表。</div>
         </div>
       );
     }
@@ -41,13 +39,14 @@ class Sidebar extends React.Component {
     return (
       <div className="repository-sidebar">
         <div className="repository-search">
-          <input type="search" placeholder="Filter..." onChange={this.onFilter} spellCheck="off" />
+          <i className="material-icons">filter_list</i>
+          <input type="search" placeholder="筛选..." onChange={this.onFilter} spellCheck="off" />
         </div>
-        <div>
+        <div className="repositories">
         {feed.map((repo) => {
           return (
-            <Link key={repo.full_name} to={`/${repo.owner}/${repo.name}`}>
-              <RepoListItem repo={repo}/>
+            <Link key={repo.full_name} to={`/${repo.owner}/${repo.name}`} className={this.props.location.pathname.indexOf(`/${repo.owner}/${repo.name}`) >= 0 ? 'active' : ''}>
+              <RepoListItem repo={repo} />
             </Link>
           );
         })}

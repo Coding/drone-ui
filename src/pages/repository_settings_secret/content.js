@@ -7,10 +7,10 @@ import { Textfield, FABButton, Icon, Switch, Grid, Cell, Checkbox } from 'react-
 import './index.less';
 
 const eventTypes = [
-  { label: 'Push', value: 'push' },
-  { label: 'Tag', value: 'tag' },
-  { label: 'Deployment', value: 'deployment' },
-  { label: 'Pull Request', value: 'pull_request' }
+  { label: '推送权限', value: 'push' },
+  { label: '标签权限', value: 'tag' },
+  { label: '部署权限', value: 'deployment' },
+  { label: 'Pull Request 权限', value: 'pull_request' }
 ];
 
 class Content extends React.Component {
@@ -44,7 +44,7 @@ class Content extends React.Component {
     const { secrets } = this.props;
     if (!secrets) {
       return (
-        <div>Loading...</div>
+        <div>加载中...</div>
       );
     }
 
@@ -57,14 +57,14 @@ class Content extends React.Component {
 
                 <div key={index}>
                   <Textfield
-                    label="Secret Name"
+                    label="名称"
                     floatingLabel
                     style={{ width: '300px' }}
                     value={secret.name}
                     disabled={true}
                   />
                   <Textfield
-                    label="Update Secret Value"
+                    label="更新值"
                     floatingLabel
                     style={{ width: '300px' }}
                     value={this.state[secret.name]}
@@ -104,14 +104,14 @@ class Content extends React.Component {
         }
 
         <Textfield
-          label="Secret Name"
+          label="名称"
           floatingLabel
           style={{ width: '300px' }}
           onChange={(field) => this.handleAddKeyChange(field.target.value)}
           value={this.state.addSecret.name}
         />
         <Textfield
-          label="Secret Value"
+          label="值"
           floatingLabel
           style={{ width: '300px' }}
           onChange={(field) => this.handleAddSecretChange(field.target.value)}
@@ -136,9 +136,9 @@ class Content extends React.Component {
               }
             </Cell>
             <Cell col={6}>
-              <Checkbox id="skip_verify" label="Skip Verify" onChange={(field) => this.handleOptionalChange(field)}
+              <Checkbox id="skip_verify" label="跳过验证" onChange={(field) => this.handleOptionalChange(field)}
                         checked={ this.state.addSecret.skip_verify }/>
-              <Checkbox id="conceal" label="Conceal" onChange={(field) => this.handleOptionalChange(field)}
+              <Checkbox id="conceal" label="隐藏" onChange={(field) => this.handleOptionalChange(field)}
                         checked={ this.state.addSecret.conceal }/>
             </Cell>
           </Grid>
