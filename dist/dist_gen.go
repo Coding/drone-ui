@@ -80,7 +80,7 @@ func distIndexHtml() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "dist/index.html", size: 808, mode: os.FileMode(438), modTime: time.Unix(1492591220, 0)}
+	info := bindataFileInfo{name: "dist/index.html", size: 808, mode: os.FileMode(438), modTime: time.Unix(1492829058, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -98,7 +98,7 @@ func distStaticAppCss() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "dist/static/app.css", size: 161330, mode: os.FileMode(438), modTime: time.Unix(1492591220, 0)}
+	info := bindataFileInfo{name: "dist/static/app.css", size: 161330, mode: os.FileMode(438), modTime: time.Unix(1492829058, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -809,7 +809,7 @@ e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,wri
 var u=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n]
 r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),l=n(1),s=r(l),c=n(14)
 n(201)
-var f=function(e){function t(){return o(this,t),a(this,(t.__proto__||Object.getPrototypeOf(t)).apply(this,arguments))}return i(t,e),u(t,[{key:"render",value:function(){return s.default.createElement("div",null,s.default.createElement(c.Link,{to:"/"},s.default.createElement("img",{className:"site-logo",src:"/static/coding-logo.png"})),s.default.createElement("ul",{className:"site-nav"},s.default.createElement("li",null,s.default.createElement("a",{href:"https://coding.net/",target:"_blank"},"平台版")),s.default.createElement("li",null,s.default.createElement("a",{href:"https://e.coding.net/",target:"_blank"},"企业版")),s.default.createElement("li",null,s.default.createElement("a",{href:"https://ide.coding.net/",target:"_blank"},"IDE")),s.default.createElement("li",null,s.default.createElement("a",{href:"https://coding.net/pp",target:"_blank"},"冒泡")),s.default.createElement("li",null,s.default.createElement(c.Link,null,"Gist"))))}}]),t}(s.default.Component)
+var f=function(e){function t(){return o(this,t),a(this,(t.__proto__||Object.getPrototypeOf(t)).apply(this,arguments))}return i(t,e),u(t,[{key:"render",value:function(){return s.default.createElement("div",null,s.default.createElement(c.Link,{to:"/"},s.default.createElement("img",{className:"site-logo",src:"https://dn-coding-net-production-static.qbox.me/static/7a51352fa766f4176d7c4543339e0e98.png"})),s.default.createElement("ul",{className:"site-nav"},s.default.createElement("li",null,s.default.createElement("a",{href:"https://coding.net/",target:"_blank"},"平台版")),s.default.createElement("li",null,s.default.createElement("a",{href:"https://e.coding.net/",target:"_blank"},"企业版")),s.default.createElement("li",null,s.default.createElement("a",{href:"https://ide.coding.net/",target:"_blank"},"IDE")),s.default.createElement("li",null,s.default.createElement("a",{href:"https://coding.net/pp",target:"_blank"},"冒泡"))))}}]),t}(s.default.Component)
 t.default=f},function(e,t){"use strict"
 function n(e,t){return e===t?0!==e||0!==t||1/e===1/t:e!==e&&t!==t}function r(e,t){if(n(e,t))return!0
 if("object"!=typeof e||null===e||"object"!=typeof t||null===t)return!1
@@ -3474,7 +3474,7 @@ func distStaticAppJs() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "dist/static/app.js", size: 458657, mode: os.FileMode(438), modTime: time.Unix(1492591220, 0)}
+	info := bindataFileInfo{name: "dist/static/app.js", size: 458646, mode: os.FileMode(438), modTime: time.Unix(1492829058, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -3491,7 +3491,7 @@ func distStaticFaviconIco() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "dist/static/favicon.ico", size: 4286, mode: os.FileMode(438), modTime: time.Unix(1492591220, 0)}
+	info := bindataFileInfo{name: "dist/static/favicon.ico", size: 4286, mode: os.FileMode(438), modTime: time.Unix(1492829058, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
