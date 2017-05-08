@@ -18,13 +18,13 @@ class Page extends React.Component {
     var pageMenu;
     if (user && user != null) {
       pageMenu = (
-        <div>
-          <Avatar src={user.avatar_url} circle/>
-          <IconButton name="more_vert" id="drone-header-menu-right"/>
+        <div className="site-user" id="drone-header-menu-right">
+          <Avatar src={user.avatar_url} circle />
+          <i name="more_vert" className="material-icons">keyboard_arrow_down</i>
           <Menu target="drone-header-menu-right" align="right">
-            <MenuItem onClick={() => {browserHistory.push('/');}}>Dashboard</MenuItem>
-            <MenuItem onClick={() => {browserHistory.push('/account');}}>Account</MenuItem>
-            <MenuItem onClick={() => {window.location.href='/logout';}}>Logout</MenuItem>
+            <MenuItem onClick={() => {browserHistory.push('/')}}>仪表盘</MenuItem>
+            <MenuItem onClick={() => {browserHistory.push('/account')}}>用户设置</MenuItem>
+            <MenuItem onClick={() => {window.location.href='/logout'}}>注销</MenuItem>
           </Menu>
         </div>
       );
@@ -34,16 +34,11 @@ class Page extends React.Component {
       <div style={{minHeight: '100vh', position: 'relative'}}>
           <Snackbar active={state.toast !== undefined} onTimeout={this.handleTimeout}>{state.toast}</Snackbar>
           <Layout fixedHeader fixedDrawer>
-              <Header>
+              <Header className="site-header">
                 <div>{pageHead}</div>
                 {pageMenu}
               </Header>
               <Drawer>
-                <div className="brand">
-                  <Link to="/">
-                      <img className="logo" src="/static/drone.svg"/>
-                  </Link>
-                </div>
                 <Navigation>
                   {pageSidebar}
                 </Navigation>
@@ -57,17 +52,6 @@ class Page extends React.Component {
           </Layout>
       </div>
     );
-
-    // return (
-    //   <div className="page">
-    //     <Header user={user}/>
-    //     <Subnav>
-    //       {pageHead}
-    //     </Subnav>
-    //     <hr/>
-    //     {pageContent}
-    //   </div>
-    // );
   }
 }
 

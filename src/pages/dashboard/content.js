@@ -12,14 +12,14 @@ class Content extends React.Component {
     if (!user || !user.login) {
       return (
         <PageContent fluid className="dashboard">
-          <div className="alert">Welcome to Drone. Please <a href="/login">login</a> to proceed.</div>
+          <div className="alert">请 <a href="/login">登录</a> 以获取更多功能。</div>
         </PageContent>
       );
     }
 
     return (
       <PageContent fluid className="dashboard">
-        <div className="alert">Welcome to Drone.</div>
+        <div className="alert">请选择一个项目。</div>
       </PageContent>
     );
   }

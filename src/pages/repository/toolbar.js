@@ -6,15 +6,16 @@ import {Tabs, Tab}from '../../components/layout/tabs';
 class Toolbar extends React.Component {
   render() {
     const {user} = this.props;
-    const {owner, name} = this.props.params;
+    const { owner, name } = this.props.params;
 
     const tabs = [
-      {url: `/${owner}/${name}`, text: 'Builds'},
-      {url: `/${owner}/${name}/settings/badges`, text: 'Badges'}
+      {url: `/${owner}/${name}`, re: new RegExp(`/${owner}/${name}(/\\d+)*$`), text: '构建'},
+      {url: `/${owner}/${name}/settings/badges`, re: new RegExp(`/${owner}/${name}/settings/badges$`), text: '徽章'}
     ];
 
     if (user) {
-      tabs.push({url: `/${owner}/${name}/settings/`, text: 'Settings'});
+      tabs.push({url: `/${owner}/${name}/settings/`, re: new RegExp(`/${owner}/${name}/settings/$`), text: '设置'});
+      tabs.push({url: `/${owner}/${name}/settings/secret/`, re: new RegExp(`/${owner}/${name}/settings/secret/$`), text: '密钥'});
     }
 
     return (
@@ -22,7 +23,7 @@ class Toolbar extends React.Component {
         {tabs.map((tab, index) => {
           return (
             <Tab key={index}>
-              <Link to={tab.url} className={tab.url == this.props.location.pathname ? 'active' : ''}>{tab.text}</Link>
+              <Link to={tab.url} className={tab.re.test(this.props.location.pathname) ? 'active' : ''}>{tab.text}</Link>
             </Tab>
           );
         })}

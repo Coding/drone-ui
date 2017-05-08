@@ -16,7 +16,7 @@ class Sidebar extends React.Component {
   render() {
     let {user, repositories, token, state, params} = this.props;
     if (!user || !repositories) {
-      return <div>Loading ...</div>;
+      return <div className="sidebar-loading">加载中...</div>;
     }
 
     let orgs = new Map();
@@ -36,8 +36,8 @@ class Sidebar extends React.Component {
     return (
       <div>
         <div className="account-actions">
-          <Button raised ripple onClick={this.handleShowToken}><Icon name="visibility" /> Show Token</Button>
-          <Button raised ripple disabled={state.syncing} onClick={this.handleSync}><Icon name="cached" /> Sync List</Button>
+          <Button raised ripple onClick={this.handleShowToken}><Icon name="visibility" /> 显示 Token</Button>
+          <Button raised ripple disabled={state.syncing} onClick={this.handleSync}><Icon name="cached" /> 列表同步</Button>
         </div>
         <div className="account-list">
           {items}
@@ -45,11 +45,11 @@ class Sidebar extends React.Component {
 
         <Dialog open={state.token}>
           <DialogContent>
-            <p>Your user account token:</p>
+            <p>使用此 Token 授权其它应用:</p>
             <pre>{token}</pre>
           </DialogContent>
           <DialogActions>
-            <Button type='button' onClick={this.handleHideToken}>Close</Button>
+            <Button type='button' onClick={this.handleHideToken}>关闭</Button>
           </DialogActions>
         </Dialog>
       </div>

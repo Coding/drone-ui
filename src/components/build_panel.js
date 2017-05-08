@@ -1,6 +1,8 @@
 import Humanize from './humanize';
 import React from 'react';
 import TimeAgo from 'react-timeago';
+import zhStrings from 'react-timeago/lib/language-strings/zh-CN'
+import buildFormatter from 'react-timeago/lib/formatters/buildFormatter'
 
 import './build_panel.less';
 
@@ -12,7 +14,7 @@ class BuildPanel extends React.Component {
     if (parent > 0) {
       return (
         <div>
-          <em>Parent:</em> #{parent}
+          <em>上级：</em> #{parent}
           <a href={`/${repo.owner}/${repo.name}/${parent}`} className="parent-link">
             <i className="material-icons">insert_link</i>
           </a>
@@ -22,15 +24,16 @@ class BuildPanel extends React.Component {
   }
 
   render() {
-    const {build, job} = this.props;
+    const { build, job } = this.props;
+    const formatter = buildFormatter(zhStrings);
 
-    let classes = ['build-panel', job.status];
+    let classes = ['build-panel', job.state || job.status];
 
     let environs = [];
-    if (job && job.environment) {
-      Object.keys(job.environment).map((key) => {
+    if (job && job.environ) {
+      Object.keys(job.environ).map((key) => {
         environs.push(
-          <code key={key}>{key}={job.environment[key]}</code>
+          <code key={key}>{key}={job.environ[key]}</code>
         );
       });
     }
@@ -40,24 +43,25 @@ class BuildPanel extends React.Component {
 
     return (
       <div className={classes.join(' ')}>
+        <h1>#{build.number} <span>{build.message}</span></h1>
         <div className="build-panel-detail">
           <div>
-            <div><em>Branch:</em> {branch}</div>
+            <div><em>分支：</em><span>{branch}</span></div>
             <div>
-              <em>Commit:</em> {build.commit.substr(0,8)}
+              <em>提交记录：</em><span>{build.commit.substr(0,8)}</span>
               <a href={build.link_url} target="_blank" className="commit-link">
                 <i className="material-icons">insert_link</i>
               </a>
             </div>
-            <div><em>Author:</em> {build.author}</div>
+            <div><em>作者：</em><span>{build.author}</span></div>
             {this.renderParentLink(build.parent)}
-            <p>{environs}{build.message}</p>
+            <p>{environs}</p>
           </div>
           <div>
             <div>
               <i className="material-icons">access_time</i>
               {job.started_at ?
-                <TimeAgo date={(job.started_at || build.created_at) * 1000} /> :
+                <TimeAgo date={(job.started_at || build.created_at) * 1000} formatter={formatter} /> :
                 <span>--</span>
               }
             </div>
@@ -65,7 +69,7 @@ class BuildPanel extends React.Component {
               <i className="material-icons">timelapse</i>
               {job.finished_at ?
                 <Humanize finished={job.finished_at} start={job.started_at} /> :
-                <TimeAgo date={(job.started_at || build.created_at) * 1000} />
+                <TimeAgo date={(job.started_at || build.created_at) * 1000} formatter={formatter} />
               }
             </div>
           </div>
@@ -75,4 +79,3 @@ class BuildPanel extends React.Component {
     );
   }
 }
-/**/

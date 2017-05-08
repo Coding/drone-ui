@@ -2,51 +2,79 @@
 
 .history,
 .repository-sidebar {
-
+  a {
+    display: block;
+    text-decoration: none !important;
+    .card,
+    .repo-list-item {
+      border-top: 1px solid #E4E6E9;
+    }
+    &:first-child .card,
+    &:first-child .repo-list-item {
+      border-top: none;
+    }
+  }
+  .alert {
+    text-align: center;
+    padding-top: 150px;
+    color: #9E9E9E;
+    font-size:15px;
     a {
-      display: block;
-      text-decoration: none !important;
-      border-top: 1px solid #EEE;
-
-      &:first-child {
-        border-top: 0;
-      }
+      color: #212121;
+      border:none;
+      display: inline;
     }
-
-    .alert {
-      text-align: center;
-      padding-top: 150px;
-      color: #9E9E9E;
-      font-size:15px;
-      a {
-        color: #212121;
-        border:none;
-        display: inline;
-      }
-    }
+  }
+}
+.repository-sidebar {
+  height: 100%;
+}
+.repositories {
+  height: calc(~'100% - 45px');
+  overflow: auto;
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 1px;
+    background: #D9DDE1;
+    z-index: -1;
+  }
+  a {
+    border-left: 1px solid #D9DDE1;
+    border-right: 1px solid #D9DDE1;
+  }
+  a.active {
+    background: #F2F4F6;
+    border-left-color: transparent;
+    border-right-color: transparent;
+  }
 }
 
-.history a:nth-child(2) {
-  border-top: 0;
-}
+// .history a:nth-child(2) {
+//   border-top: 0;
+// }
 
 .alert.alert-empty {
-  background: #eee;
+  background: #FFF;
   padding: 50px;
-  border-radius: 2px;
+  border-radius: 5px;
   font-size: 16px;
   color: #757575;
 }
 
 .repository-search {
-  height: 50px;
+  height: 45px;
   margin: 0px;
   padding: 0px;
-  min-height: 50px;
-  max-height: 50px;
-  border-bottom: 1px solid #EEE;
+  min-height: 45px;
+  max-height: 45px;
   box-sizing: border-box;
-
+  border-left: 1px solid #D9DDE1;
+  border-right: 1px solid #D9DDE1;
+  border-bottom: 1px solid #E4E6E9;
   input {
     height: 100%;
     border: none;
@@ -59,7 +87,8 @@
 }
 
 ::-webkit-input-placeholder {
-  color: #BDBDBD;
+  color: #76808E;
+  font-size: 14px;
 }
 
 //

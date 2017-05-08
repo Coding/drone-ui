@@ -1,20 +1,16 @@
-import {branch} from 'baobab-react/higher-order';
-import Breadcrumb from '../../components/layout/breadcrumb';
 import React from 'react';
+import { branch } from 'baobab-react/higher-order';
+import CommonHeader from '../../components/header';
 
 class Header extends React.Component {
   componentDidMount() {
     const {owner, name} = this.props.params;
-    document.title = `${owner}/${name} | drone`;
+    document.title = `项目 ${name} (${owner}) | Drone`;
   }
 
   render() {
-    const {owner, name} = this.props.params;
-
     return (
-      <div>
-        <Breadcrumb elements={[`${owner} / ${name}`]}/>
-      </div>
+      <CommonHeader />
     );
   }
 }

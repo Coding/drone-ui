@@ -4,10 +4,11 @@
 .mdl-layout__header {
   background: #FFF;
   box-shadow: none;
-  border-bottom: 1px solid #EEE;
-  height: 80px;
-  min-height:80px;
-  max-height:80px;
+  border-bottom: 1px solid #D8DDE4;
+  box-sizing: border-box;
+  height: 60px;
+  margin-left: 0 !important;
+  width: 100% !important;
 
   .mdl-layout-title {
     color: #212121;
@@ -20,37 +21,42 @@
 }
 
 .mdl-layout__content {
-
-
-  &> .content {
+  .tabs + .content {
+    padding-top: 0;
+  }
+  .content {
     padding: 40px;
+    .content {
+      padding: 0;
+    }
+    .repository-secrets {
+      padding: 20px 30px;
+    }
   }
 }
 
 .mdl-layout__drawer .mdl-navigation {
   padding-top:0px;
+  height: 100%;
+  .sidebar-loading {
+    padding: 30px;
+  }
 }
 
 .mdl-layout__drawer {
   width: @drawer-width;
+  height: calc(~'100% - 60px');
   background: #FFF;
-  border-right: 1px solid #EEE;
-  box-shadow: 2px 2px 2px rgba(0,0,0,0.05);
+  border-right: none;
+  box-shadow: none;
 }
 
-// by default the mdl layout container fits the page and the header is fixed
-// when scrolling. This disables this default behavior.
-.mdl-layout__inner-container {
-  // height: auto;
-  // min-height: 100vh;
-}
-
-.mdl-layout--fixed-drawer > .mdl-layout__inner-container > .mdl-layout__content {
+.mdl-layout--fixed-drawer .mdl-layout__inner-container .mdl-layout__content {
   margin-left: @drawer-width;
 }
 
 @media screen and (max-width: 1024px) {
-    .mdl-layout--fixed-drawer > .mdl-layout__inner-container > .mdl-layout__content {
+    .mdl-layout--fixed-drawer .mdl-layout__inner-container .mdl-layout__content {
       margin-left:0px;
     }
     .mdl-layout__drawer {
@@ -61,21 +67,41 @@
 }
 
 .mdl-layout__header-row {
-  padding-right: 10px;
-
-  &> div:first-child {
-    flex: 1 1 auto;
-    -webkit-flex: 1 1 auto;
+  display: block;
+  height: 60px;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  & > div:first-child {
+    float: left;
   }
-
-  &> div:last-child {
+  .site-user {
+    float: right;
     white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    padding-right: 10px;
+    img {
+      width: 42px;
+      height: 42px;
+    }
+    i {
+      height: 60px;
+      line-height: 60px;
+      vertical-align: middle;
+    }
   }
 }
 
+.mdl-menu {
+  padding: 0;
+}
+
 @media screen and (min-width: 1025px) {
-  .mdl-layout--fixed-drawer > .mdl-layout__inner-container > .mdl-layout__header .mdl-layout__header-row {
+  .mdl-layout--fixed-drawer .mdl-layout__inner-container .mdl-layout__header .mdl-layout__header-row {
     padding-left: (@drawer-width - 200);
+  }
+  .mdl-layout--fixed-drawer .mdl-layout__inner-container .mdl-layout__drawer {
+    transform: translate(0, 60px);
   }
 }
 
