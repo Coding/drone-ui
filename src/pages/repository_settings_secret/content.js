@@ -50,6 +50,7 @@ class Content extends React.Component {
 
     return (
       <PageContent className="repository-secrets">
+        <h5>密钥列表</h5>
         {
           secrets
             .map((secret, index) => {
@@ -70,12 +71,13 @@ class Content extends React.Component {
                     value={this.state[secret.name]}
                     onChange={(field) => this.handleSecretChange(secret.name, field.target.value)}
                   />
-                  <FABButton ripple mini
+                  <FABButton ripple mini accent
                              onClick={this.handleDelete.bind(this, owner, name, secret.name)}
                   >
                     <Icon name="delete"/>
                   </FABButton>
-                  <FABButton ripple mini disabled={!this.state[secret.name]}
+                  <FABButton ripple mini primary
+                             disabled={!this.state[secret.name]}
                              onClick={this.handleUpdateSecret.bind(this, owner, name, secret.name)}
                   >
                     <Icon name="update"/>
@@ -92,17 +94,17 @@ class Content extends React.Component {
                         }
                       </Cell>
                       <Cell col={6}>
-                        <Checkbox label="Skip Verify" disabled={true} checked={ secret.skip_verify }/>
-                        <Checkbox label="Conceal" disabled={true} checked={ secret.conceal}/>
+                        <Checkbox label="跳过验证" disabled={true} checked={ secret.skip_verify }/>
+                        <Checkbox label="隐藏" disabled={true} checked={ secret.conceal}/>
                       </Cell>
                     </Grid>
                   </div>
-                  <hr/>
                 </div>
               );
             })
         }
-
+        <hr/>
+        <h5>添加新的密钥</h5>
         <Textfield
           label="名称"
           floatingLabel
@@ -117,7 +119,7 @@ class Content extends React.Component {
           onChange={(field) => this.handleAddSecretChange(field.target.value)}
           value={this.state.addSecret.value}
         />
-        <FABButton ripple mini
+        <FABButton ripple mini primary
                    onClick={this.handleAdd.bind(this, owner, name)}
                    disabled={ this.state.addSecret.name === '' || this.state.addSecret.value === ''}
         >

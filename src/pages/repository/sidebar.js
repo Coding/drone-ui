@@ -27,7 +27,7 @@ class Sidebar extends React.Component {
     }
 
     if (feed.length == 0) {
-      return <div>Loading...</div>;
+      return <div className="sidebar-loading">Loading...</div>;
     }
 
     if (state.filter) {

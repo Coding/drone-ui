@@ -21,8 +21,11 @@
 }
 
 .mdl-layout__content {
+  .tabs + .content {
+    padding-top: 0;
+  }
   .content {
-    padding: 0 40px 40px;
+    padding: 40px;
     .content {
       padding: 0;
     }
@@ -35,6 +38,9 @@
 .mdl-layout__drawer .mdl-navigation {
   padding-top:0px;
   height: 100%;
+  .sidebar-loading {
+    padding: 30px;
+  }
 }
 
 .mdl-layout__drawer {
@@ -73,6 +79,7 @@
     white-space: nowrap;
     cursor: pointer;
     user-select: none;
+    padding-right: 10px;
     img {
       width: 42px;
       height: 42px;

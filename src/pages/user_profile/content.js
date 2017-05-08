@@ -24,12 +24,12 @@ class Content extends React.Component {
   render() {
     let {user, repos, params} = this.props;
     if (!user || !repos) {
-      return <div>Loading ...</div>;
+      return <div>加载中...</div>;
     }
 
     if (repos.length === 0) {
       return (
-          <div className="alert alert-empty">Your repository list is empty.</div>
+          <div className="alert alert-empty">你没有任何项目。</div>
         );
     }
 

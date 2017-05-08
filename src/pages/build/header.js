@@ -6,7 +6,7 @@ import CommonHeader from '../../components/header';
 class Header extends React.Component {
   componentDidMount() {
     const { owner, name, number } = this.props.params;
-    document.title = `${owner}/${name} #${number} | drone`;
+    document.title = `构建 #${number} (${owner}/${name}) | Drone`;
   }
   render() {
     return (

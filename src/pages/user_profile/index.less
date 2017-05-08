@@ -1,6 +1,6 @@
 
 .account-list {
-  border-top:1px solid #EEE;
+  border-top:1px solid #F2F4F6;
   padding-top:20px;
   margin-top:20px;
 
@@ -17,7 +17,7 @@
 
     &.active,
     &:hover {
-      background:#EEE;
+      background: #F2F4F6;
     }
   }
 
@@ -61,16 +61,16 @@
 }
 
 .user-profile {
-  &> div {
+  padding: 0 40px !important;
+  & > div {
     display: flex;
     display: -webkit-flex;
-    border-bottom: 1px solid #EEE;
+    border-bottom: 1px solid #F2F4F6;
     padding: 10px 0px;
-    cursor: pointer;
-    -webkit-user-select: none;
-    user-select: none;
-
-    &> div {
+    &:last-child {
+      border-bottom: none;
+    }
+    & > div {
       white-space:nowrap;
   		line-height:42px;
   		vertical-align: middle;

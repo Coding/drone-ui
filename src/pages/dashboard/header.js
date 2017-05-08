@@ -5,7 +5,7 @@ import CommonHeader from '../../components/header';
 
 class Header extends React.Component {
   componentDidMount() {
-    document.title = 'welcome | drone';
+    document.title = '欢迎 | Drone';
   }
   render() {
     return (

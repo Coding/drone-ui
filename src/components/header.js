@@ -8,7 +8,7 @@ export default class Header extends React.Component {
     return (
       <div>
         <Link to="/">
-          <img className="site-logo" src="https://dn-coding-net-production-static.qbox.me/static/7a51352fa766f4176d7c4543339e0e98.png" />
+          <img className="site-logo" src="https://dn-coding-net-production-pp.qbox.me/6d93c1f1-6e4b-47d3-92da-d167b0c14e9c.png" />
         </Link>
         <ul className="site-nav">
           <li>
